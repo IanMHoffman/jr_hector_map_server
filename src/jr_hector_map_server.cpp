@@ -10,9 +10,9 @@ jr_hector_map_server::jr_hector_map_server( ros::NodeHandle &_nh, ros::NodeHandl
 bool jr_hector_map_server::start()
 {
 	if(!map_server)
-		map_server = nh.advertiseService("map", &jr_hector_map_server::get_map, this);
+		map_server = nh.advertiseService("/map", &jr_hector_map_server::get_map, this);
 	if( !map_sub )
-                map_sub = nh.subscribe( "scanmatcher_map", 1, &jr_hector_map_server::MapCB, this );
+                map_sub = nh.subscribe( "map", 1, &jr_hector_map_server::MapCB, this );
 	
 	ROS_INFO("...Done!");
 	return true;
